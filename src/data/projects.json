@@ -1,4 +1,0 @@
-[
-  {"title":"FlightForge","description":"Procedural wing generation software for exploring geometry, constraints, and optimization.","technologies":["MATLAB","UI Design","Optimization"],"image":"/images/flightforge.svg"},
-  {"title":"Vector Atlas","description":"A compact toolset for evaluating aircraft performance across mission profiles.","technologies":["Python","Data Viz","Aerospace"],"image":"/images/vector-atlas.svg"}
-]

@@ -1,5 +1,0 @@
----
-import projects from '../data/projects.json';
-import { withBase } from '../lib/path';
----
-<section class="page-panel"><div class="panel-heading"><div><p class="eyebrow">WORKSHOP &gt; PROJECTS</p><h2>BUILD LOG</h2></div><p class="resource-count">ACTIVE PROJECTS: {projects.length.toString().padStart(3, '0')}</p></div><div class="project-grid">{projects.map(project => <article class="project-card"><img src={withBase(project.image)} alt="" /><div class="project-body"><h3>{project.title}</h3><p>{project.description}</p><div class="tags">{project.technologies.map(tech => <span>{tech}</span>)}</div><a class="open-link" href={withBase('/workshop/projects')}>READ MORE <b>→</b></a></div></article>)}</div></section>
