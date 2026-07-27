@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/path';
+---
+<BaseLayout title="About" section="about">
+  <div class="crumb">SYSTEM <span class="amber">&gt; ABOUT</span></div>
+  <h2>OPERATOR PROFILE</h2>
+  <p class="bio">This is a personal archive for engineering references, ongoing work, and the ideas worth returning to. The system is deliberately quiet: a durable workspace rather than a feed.</p>
+
+  <div class="file-card">
+    <div class="file-icon">PDF</div>
+    <div class="file-meta">
+      <div class="name">resume.pdf</div>
+      <div class="sub">updated 2026.07.18</div>
+    </div>
+    <a class="file-dl" href={withBase('/resume.pdf')}>DOWNLOAD ↓</a>
+  </div>
+  <p style="font-size:10px; color:var(--muted); margin-top:-12px; margin-bottom:20px;">Place your real resume at <code style="color:var(--accent);">public/resume.pdf</code> — this card links to that file.</p>
+
+  <div class="contact-list">
+    <div class="contact-row"><span class="k">GitHub</span><a href="https://github.com/sleepy-soup" target="_blank">github.com/sleepy-soup</a></div>
+    <div class="contact-row"><span class="k">LinkedIn</span><a href="https://linkedin.com/" target="_blank">linkedin.com/in/yourusername</a></div>
+    <div class="contact-row"><span class="k">Email</span><a href="mailto:you@example.com">you@example.com</a></div>
+  </div>
+</BaseLayout>

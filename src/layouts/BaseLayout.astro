@@ -1,0 +1,91 @@
+---
+import '../styles/global.css';
+import { withBase } from '../lib/path';
+interface Props { title?: string; section?: 'memex' | 'workshop' | 'about' | 'home'; }
+const { title = 'Memex Terminal', section = 'home' } = Astro.props;
+const basePath = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
+const rawPath = Astro.url.pathname;
+const path = basePath && rawPath.startsWith(basePath) ? rawPath.slice(basePath.length) || '/' : rawPath;
+
+const main = [
+  { label: 'Home', href: '/', key: 'home' },
+  { label: 'Memex', href: '/memex/library', key: 'memex' },
+  { label: 'Workshop', href: '/workshop', key: 'workshop' },
+  { label: 'About', href: '/about', key: 'about' },
+];
+
+const sub = section === 'memex'
+  ? [{ label: 'Graph', href: '/memex/graph' }, { label: 'Library', href: '/memex/library' }, { label: 'Books', href: '/memex/books' }, { label: 'Websites', href: '/memex/websites' }, { label: 'Videos', href: '/memex/videos' }, { label: 'PDFs', href: '/memex/pdfs' }, { label: 'Notes', href: '/memex/notes' }]
+  : section === 'workshop'
+  ? [{ label: 'Portfolio', href: '/workshop' }, { label: 'Projects', href: '/workshop/projects' }]
+  : [];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A personal engineering knowledge terminal." />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="rig">
+
+      <div class="nameplate">
+        <pre class="ascii-logo">█...█ █████ █...█ █████ █...█
+██.██ █.... ██.██ █.... .█.█.
+█.█.█ ████. █.█.█ ████. ..█..
+█...█ █.... █...█ █.... .█.█.
+█...█ █████ █...█ █████ █...█</pre>
+        <h1 class="text-logo">MEMEX</h1>
+        <p class="sub">A device for storing a lifetime of books, records, and correspondence — mechanized so it can be recalled in an instant. Not a replacement for memory. An extension of it. <span style="opacity:0.7;">(Vannevar Bush, "As We May Think," 1945)</span></p>
+      </div>
+
+      <div class="monitor">
+        <div class="win-titlebar">
+          <span>MEMEX.EXE</span>
+          <div class="win-controls"><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="screen">
+          <nav class="tabbar" aria-label="Main navigation">
+            {main.map(item => (
+              <a
+                class={`tab ${path === item.href || (item.key !== 'home' && item.key !== 'about' && path.startsWith(`/${item.key}`)) || (item.key === 'about' && path.startsWith('/about')) ? 'active' : ''}`}
+                href={withBase(item.href)}
+              >{item.label}</a>
+            ))}
+          </nav>
+
+          <div class="sys-ticker">
+            <span>SYS: <b>MEMEX-1000</b></span>
+            <span>NODES: <b>006</b></span>
+            <span>LINK: <b>OK</b></span>
+            <span>LAST SYNC: <b>2026.07.18</b></span>
+          </div>
+
+          {sub.length > 0 && (
+            <nav class="subtabbar" aria-label="Section navigation">
+              {sub.map(item => (
+                <a class={`subtab ${path === item.href ? 'active' : ''}`} href={withBase(item.href)}>{item.label}</a>
+              ))}
+            </nav>
+          )}
+
+          <main class="content">
+            <slot />
+          </main>
+
+          <div class="footer-strip">
+            <span>MEMEX / PERSONAL ARCHIVE</span>
+            <span>STATIC SYSTEM · v1.0</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>

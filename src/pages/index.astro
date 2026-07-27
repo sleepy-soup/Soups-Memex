@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../lib/path';
+---
+<BaseLayout title="Memex Terminal">
+  <div class="boot-lines">
+    MEMEX &gt; loading personal archive... <b>OK</b><br />
+    MEMEX &gt; indexing 006 resources... <b>OK</b><br />
+    MEMEX &gt; system ready<span style="color:var(--accent);">_</span>
+  </div>
+
+  <div class="menu-head">Select a destination</div>
+  <div class="menu-list">
+    <a class="menu-item" href={withBase('/memex/library')}><span class="arrow">►</span> Enter Memex <span class="desc">library / graph / notes</span></a>
+    <a class="menu-item" href={withBase('/workshop')}><span class="arrow">►</span> Open Workshop <span class="desc">active projects</span></a>
+    <a class="menu-item" href={withBase('/about')}><span class="arrow">►</span> View About <span class="desc">bio / resume / contact</span></a>
+  </div>
+
+  <div class="home-stats">
+    <div><div class="num">006</div><div class="lbl">Resources</div></div>
+    <div><div class="num">002</div><div class="lbl">Projects</div></div>
+    <div><div class="num">R/W</div><div class="lbl">Mode</div></div>
+  </div>
+</BaseLayout>

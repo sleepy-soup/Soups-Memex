@@ -1,0 +1,8 @@
+[
+  {"title":"NASA Glenn Compressible Flow","description":"Compressible-flow equations, calculators, and reference material.","url":"https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/","type":"website","tags":["Aerospace","CFD","Calculator"]},
+  {"title":"Fundamentals of Aerodynamics","description":"John D. Anderson's foundational aerodynamics text.","url":"https://www.mheducation.com/highered/product/fundamentals-aerodynamics-anderson.html","type":"book","tags":["Aerospace","Aerodynamics","Reference"]},
+  {"title":"MIT OpenCourseWare: Fluid Dynamics","description":"Lecture notes and course material for fluid mechanics.","url":"https://ocw.mit.edu/","type":"website","tags":["CFD","Fluid Dynamics","Learning"]},
+  {"title":"NASA Systems Engineering Handbook","description":"Practical guidance for planning and managing complex systems.","url":"https://www.nasa.gov/reference/nasa-systems-engineering-handbook/","type":"pdf","tags":["Systems","Aerospace","Reference"]},
+  {"title":"Flight Test Fundamentals","description":"A working notebook on test planning, data reduction, and reporting.","url":"/notes/flight-test","type":"notes","tags":["Aviation","Testing","Notes"]},
+  {"title":"Introduction to Finite Elements","description":"A concise video course covering FEA concepts and workflows.","url":"https://www.youtube.com/","type":"video","tags":["FEA","Simulation","Learning"]}
+]
